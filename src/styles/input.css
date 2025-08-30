@@ -1,0 +1,46 @@
+.form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 15px 5px;
+  background-color: #fefefe;
+  border-bottom: 1px solid #878787;
+}
+
+.input-area {
+  font-size: 1.4rem;
+  background-color: transparent;
+  border: transparent;
+}
+
+input:focus {
+  outline: none;
+}
+
+input::placeholder {
+  color: #d1d0d077;
+  font-style: italic;
+}
+
+input[type="checkbox"] {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  appearance: none;
+  background: none;
+  border: 1px solid #ededed;
+  border-radius: 100%;
+  cursor: pointer;
+  outline: none;
+}
+
+input[type="checkbox"]:checked:after {
+  content: "✓";
+  position: absolute;
+  left: 4px;
+  top: 0;
+  font-size: 20px;
+  color: #28a745;
+}

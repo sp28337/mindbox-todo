@@ -1,25 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './styles/main.css';
+import './styles/input.css';
+import './styles/global.css';
+import './styles/footer.css';
+
+import { useState } from "react";
+import { useTodos } from "./hooks/useTodos";
+import { Filter } from "./types";
+import TodoInput from "./components/TodoInput";
+import TodoList from "./components/TodoList";
+import TodoFooter from "./components/TodoFooter";
+
 
 function App() {
+  const { todos, addTodo, toggleTodo, clearCompleted } = useTodos();
+  const [filter, setFilter] = useState<Filter>("all");
+
+  const filteredTodos = todos.filter(todo => {
+    if (filter === "active") return !todo.completed;
+    if (filter === "completed") return todo.completed;
+    return true;
+  });
+
+  const remainingCount = todos.filter(todo => !todo.completed).length;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="main">
+      <h1 className="title">todos</h1>
+      <div className="panel">
+        <TodoInput addTodo={addTodo} />
+        <TodoList todos={filteredTodos} toggleTodo={toggleTodo} />
+        <TodoFooter 
+          remainingCount={remainingCount} 
+          clearCompleted={clearCompleted}
+          setFilter={setFilter}
+          filter={filter}
+        />
+      </div>
+      <div className="fake-panel-1"/>
+      <div className="fake-panel-2"/>
+    </main>
   );
 }
 

@@ -1,0 +1,59 @@
+
+.main {
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  max-width: 700px;
+}
+
+.title {
+  font-size: 100px;
+  font-weight: 100;
+  color: #79562e2b;
+  text-align: center;
+  margin: 0;
+}
+
+.panel {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20), 0 25px 50px 0 rgba(0,0,0,0.10);
+}
+
+.fake-panel-1 {
+  margin: 0 auto;
+  width: 98%;
+  height: 5px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20), 0 25px 50px 0 rgba(0,0,0,0.10);
+}
+
+.fake-panel-2 {
+  margin: 0 auto;
+  width: 96%;
+  height: 5px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20), 0 25px 50px 0 rgba(0,0,0,0.10);
+}
+
+.todo-list {
+  background: #fff;
+}
+
+.list-elem {
+  border-bottom: 1px solid #ededed;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  padding: 15px 0 15px 60px;
+  position: relative;
+}
+
+.label {
+  cursor: pointer;
+  width: 100%;
+}
+
+
+@media (max-width: 768px) {
+    .main {
+        width: 90vw;
+    }
+}
