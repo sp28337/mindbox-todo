@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { TodoFooterProps } from "../types";
+import { useScreenSize } from "../hooks/useScreenSize";
 
 
 const TodoFooter: FC<TodoFooterProps> = ({ 
@@ -10,7 +11,9 @@ const TodoFooter: FC<TodoFooterProps> = ({
 }) => {
   return (
     <div className="footer">
-      <span className="items-counter">{remainingCount} items left</span>
+      <span className="items-counter">{remainingCount} 
+        {`${useScreenSize() === "m" ? " left" : " items left"}`}
+      </span>
       <div className=".filters-wrapper">
         <button 
           className={`filter-btn ${filter === 'all' ? 'filter-btn_selected' : ''}`} 
@@ -28,14 +31,14 @@ const TodoFooter: FC<TodoFooterProps> = ({
           className={`filter-btn ${filter === 'completed' ? 'filter-btn_selected' : ''}`} 
           onClick={() => setFilter("completed")}
         >
-          Completed
+          {`${useScreenSize() === "m" ? "Compl" : "Completed"}`}
         </button>  
       </div>
       <button 
         className="clear-btn" 
         onClick={clearCompleted}
       >
-        Clear completed
+        {`${useScreenSize() === "m" ? "Clear" : "Clear completed"}`}
       </button>
     </div>
   );
