@@ -14,7 +14,7 @@ const TodoInput: FC<TodoInputProps> = ({ addTodo }) => {
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit} aria-label="todo form">
 
       <svg width="30" height="30" viewBox="0 0 24 24">
         <path d="M7 10l5 5 5-5" stroke="#ccc" strokeWidth="2" fill="none" />
